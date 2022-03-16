@@ -457,7 +457,245 @@ When we are in add method , if we press F5.
    F6 it move the next line where we have printed Done.
    But being in line 4 or 3 or 5 if we press F7, control is taken back to line9.
 
+---------------------------------------------------------------------------------------------
+* Static variable
+* instance variable
+* local variable                    
+
+ 
+  public class Main {
+   public static void main(String args[]) {
+     System.out.println("Hello");
+   }
+ }
+
+
+  public class Number1{
+    private int num;  // instance variable
+    private static int static_num; // static variable or class variable
+   
+    public Number1(int n1, int sn1){
+         num=n1;
+         static_num=sn1;
+    }
+
+    public void display(){
+     System.out.println(num+"\t"+static_num);
+     
+    }
+  }
+
+  
+
+  public class NumberMain1 {
+    public static void main(String args[]){
+       Number1 num1=new Number1(1,2);
+       Number1 num2=new Number1(3,4);
+       Number1 num3=new Number1(5,6);
+       num1.display();  // 1  6
+       num2.display();  // 3  6
+       num3.display();  // 5  6
+     }
+  }    
+
+[In the above example we got the knowledge that static variable is shared by all the objects.
+ For a class we have a single copy of static variable but for instance variables, the number of copies
+ depend on number of objects. So if we have 3 objects ,we will be having 3 copies of instance 
+ variables.]
+
+ public class Number2{
+     int num;  // instance variable
+    static int static_num; // static variable or class variable
+   
+   
+  }
+
+  
+
+  public class NumberMain2 {
+    public static void main(String args[]){
+       Number2 num1=new Number2();
+       Number2 num2=new Number2();
+       Number2 num3=new Number2();
+       num1.num=1;
+       num1.static_num=2;
+       num2.num=3;
+       num1.static_num=4;
+       num3.num=5;
+       num3.static_num=6;
+       System.out.println(num1.num);  //1
+       System.out.println(num1.static_num); //6
+       System.out.println(num2.num); // 3
+       System.out.println(num2.static_num); //6
+       System.out.println(num3.num); // 5
+       System.out.println(num3.static_num); //6
+       System.out.println(Number2.static_num);  //6
+      // Line 18, which is accessing with class name is much 
+      // prefered for static variables
+     }
+  }    
+[static variable as they are related to class and are shared by all the objects, so rather than
+accessing them through objects , we access them through class names.Though static variable can
+be accessed by objects but we access static variables with the class name. Instance variable cannot
+be accessed with the classname]
+
+
+Q When we can initialise a static variable?
+A We have static blocks to initialise static variable . We dont use constructor to initialise
+  static variable because constructor are invoked during object creation but static members are
+  not dependent on the object. 
+public class Number3{
+    private int num;  // instance variable
+    private static int static_num; // static variable or class variable
+   
+    static{   // static block is to initialise static member variable
+      static_num=6;
+      System.out.println("static block is called"); 
+    }  
     
+    public Number3(int num){
+      this.num=num;
+      System.out.println("The parameterized constructor is called");
+    }
 
+    public int getNum(){
+     return num;
+    }
 
+    public int getStatic_num(){
+     return static_num;
+    }
+   
+  }
 
+  
+
+  public class NumberMain3 {
+    public static void main(String args[]){
+       Number3 num1=new Number3(1);
+       Number3 num2=new Number3(2);
+       Number3 num3=new Number3(3);
+      
+      
+       System.out.println(num1.getNum());  //1
+       System.out.println(num2.getNum()); // 2
+       System.out.println(num3.getNum()); //3
+       System.out.println(num1.getStatic_num()); //6
+       System.out.println(num2.getStatic_num()); //6
+       System.out.println(num3.getStatic_num()); //6
+     }
+  }    
+[ static block is called once but as we have 3 objects so parameterized constructor is called thrice.]
+  non static method is able to access the static member. We can see that getStatic_num being 
+  non static is able to access the static member static_num.]
+
+Q Can we access static variable from static method?
+A yes
+
+Q Do we need to call static method with the object?
+A No . Static method can be accessed with the class name.
+       But we can access static methods with the object of also.
+
+public class Number4{
+    private int num;  // instance variable
+    private static int static_num; // static variable or class variable
+   
+    static{   // static block is to initialise static member variable
+      static_num=6;
+      System.out.println("static block is called"); 
+    }  
+    
+    public Number4(int num){
+      this.num=num;
+      System.out.println("The parameterized constructor is called");
+    }
+
+    public int getNum(){
+     return num;
+    }
+
+    public static int getStatic_num(){
+     return static_num;
+    }
+   
+  }
+
+  
+
+  public class NumberMain4 {
+    public static void main(String args[]){
+       Number4 num1=new Number4(1);
+       Number4 num2=new Number4(2);
+       Number4 num3=new Number4(3);
+      
+      
+       System.out.println(num1.getNum());  //1
+       System.out.println(num2.getNum()); // 2
+       System.out.println(num3.getNum()); //3
+       System.out.println(num1.getStatic_num()); //6
+       System.out.println(num2.getStatic_num()); //6
+       System.out.println(num3.getStatic_num()); //6
+       System.out.println(Number4.getStatic_num()); //6 
+      // The line14 is correct to access the static method
+      // though we can access the static methods with the object
+      // but as static methods are related to class
+       // they should be accessed with the class name
+     }
+  }    
+
+[ Static members( static variables and static methods) should be accessed by the class name , 
+  rather than by the object name]
+
+-----------------------------
+
+public class Number{
+     private int num;
+     private static int num2;
+     //static block or variable is related to the object
+     // that is the reason in below code we cannot write this.num2
+     public static void setNum2(int num2){
+      this.num2=num2;
+     }
+    // In that case we have to keep the parameter name and the instance variable name different
+    public static void setNum2(int n2){
+      num2=n2;
+     }
+  }
+-------------------------------------------------------------------------------
+The points related to static modifier:
+* A method and a variable can be declared as static.
+* Outer class cannot be declared as static but inner class can be declared as static.
+
+   public static class Demo{}   // We cannot write this
+  
+   public class Demo{
+     public static class Inner{}
+   }
+* static are not related to object rather they are related to class.
+* static members like variable and method can be called with object but we should call or
+  access them through class name.
+* static member variables are usually initialised within static block.
+* a non static method can access both non static and static members.
+* a static method can access only static member variable and methods.
+* to access a non static member from static block , we need to create an object of the class.
+
+ public class Demo {
+     int i;
+
+     public static void main(String args[]){
+     System.out.println(i);
+     }
+   }
+[The above code is incorrect because we trying to access a non static member(i) from a static 
+ method ( main). We cannot do that . For accessing a non static member , we have to create
+ an object of the class and then access . So below Demo2 is correct]
+  
+  public class Demo2 {
+     int i;
+
+     public static void main(String args[]){
+     Demo2 demo=new Demo2();
+     System.out.println(demo.i);
+     }
+   }
+* Why main method is declared as static?
