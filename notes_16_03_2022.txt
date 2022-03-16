@@ -45,7 +45,7 @@ We have a Student class and we need to store marks for the Student in
 class Student {}
 
 int marks[]=new int[3]; 
---------------------------------------------------
+-----------------------------------------------------------------------------
 
 public class Student {
 private int roll;
@@ -115,17 +115,13 @@ public class StudentMain {
 }
 -----------------------------------------------------------------------------------------------------
 An Employee is having id,name and address. We need to store 2 addresses.
-
  public class Employee{
   id
   name
   address
   [Hint for address , we have to declare an array of type String
  }
-
- public class EmployeeMain{
-
- }
+ public class EmployeeMain{ }
 --------------------------------------------------------------------------------------------------
 [Hint demo for accepting a String array.
 
@@ -145,3 +141,8 @@ public class ArrayDemo4{
    }  // end of for loop
    }  // end of main
   } // end of class
+------------------------------------------------------------------------------------------------
+A ClassRoom class have many students. Represent a class for the same. ClassRoom class will have
+className and studentsName.
+-----------------------------------------------------------------------------------------------
+
