@@ -251,13 +251,116 @@ Array of Object I need to store the details of multiple Books
         System.out.println(books[i].getTitle());
         System.out.println(books[i].getPrice());      
      }
+    // for reading only we can use foreach loop. We can use foreach when we want access each element
+    // and store the details in the array
+    for(Book book : books) {
+      System.out.println(book.getId());
+      System.out.println(book.getTitle());
+      System.out.println(book.getPrice());
+    }
 
     }   // end of main
   }    // end of class
 =======================================================================================================
 
 Design a class Item with itemId, itemName and price. Accept the number of items from user.
+-----------------------------------------------------------------------------------------
    
 
+public class ArrayDemo5{
+  
+  public static void main(String args[]){
+    int num[]={1,2,3,3,10};
+    for(int value : num){
+     System.out.println(value);
+    }  // end of for loop
+   }  // end of main
+  } // end of class
 
+public class ArrayDemo6{
+  
+  public static void main(String args[]){
+    String names[]={"Rajiv","Tushar","Harish"};
+    for(String name : names){
+     System.out.println(name);
+    }  // end of for loop
+   }  // end of main
+  } //
 
+-----------------------------------------------------------------------
+
+public class Customer{
+  private int id;
+  private String name;
+  private String address;
+
+ public Customer(int id, String name, String address){
+   this.id=id;
+   this.name=name;
+   this.address=address;
+ }
+
+ public void dispData(){
+  System.out.println("The id"+id);
+  System.out.println("The name"+name);
+  System.out.println("The address"+address);
+  }
+}
+
+public class CustomerMain{
+   public static void main(String str[]) {
+    Customer customers[]=new Customer[3];
+    customers[0]=new Customer(1,"Om","Delhi");
+    customers[1]=new Customer(2,"Suresh","Chennai");
+    customers[2]=new Customer(3,"Vivek","Mumbai");
+    for(Customer customer : customers){
+      customer.dispData();
+    }
+  }
+}
+----------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+public class ArrayDemo7
+{
+public static void main(String args[]){
+int numbers[][]=new int[2][3];  // 2 is the number of rows and 3 is the number of columns
+Scanner scan=new Scanner(System.in);
+// numbers.length will return the number of rows in our example the number of rows are 2
+// System.out.println(numbers[0].length);   //3
+// System.out.println(numbers[1].length);   //3
+for(int row=0;row<numbers.length;row++)
+{
+   for(int col=0;col<numbers[row].length;col++){
+      System.out.println("Enter the number");
+      numbers[row][col]=scan.nextInt();
+   } // inner loop  for columns
+}   // outer loop   for rows
+for(int row=0;row<numbers.length;row++)
+{
+   for(int col=0;col<numbers[row].length;col++){
+      System.out.print( numbers[row][col]+"\t");
+     
+   } // inner loop  for columns
+ System.out.println();
+}  // outer loop   for rows
+}
+}
+----------------------------
+
+public class ArrayDemo8 {
+    public static void main(String args[]) {
+     int numbers[][]={{1,2,3},{4,5,6},{7,8,9}};
+     for(int row=0;row<numbers.length;row++)
+{
+   for(int col=0;col<numbers[row].length;col++){
+      System.out.print( numbers[row][col]+"\t");
+     
+   } // inner loop  for columns
+ System.out.println();
+}  
+-------------------------------------------------------------------------------------------------------
+A Student can have roll, name and marks for 3 subjects and 2 attempts. Find the average and display
+the student roll,name and marks with the average being displayed.
+We can have entry for multiple students.  
+------------------------------------------------------------------------------------------------------- 
