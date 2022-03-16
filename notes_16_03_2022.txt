@@ -133,7 +133,7 @@ public class ArrayDemo4{
     Scanner scanner=new Scanner(System.in);
     for(int i=0;i<names.length;i++){
      System.out.println("Enter name");
-     names[i]=scanner.next();
+     names[i]=scanner.nextLine();
     }
     for(int i=0;i<names.length;i++){
      System.out.println(names[i]);
@@ -141,8 +141,123 @@ public class ArrayDemo4{
    }  // end of for loop
    }  // end of main
   } // end of class
+
 ------------------------------------------------------------------------------------------------
 A ClassRoom class have many students. Represent a class for the same. ClassRoom class will have
 className and studentsName.
+public class ClassRoom {
+private String className;
+private String studentsName[];
+
+// setter/getters
+}
+
+public class ClassRoomMain{
+   public static void main(String args[]) {
+     ClassRoom classRoom1=new ClassRoom();
+     ClassRoom classRoom2=new ClassRoom();
+     Scanner scan=new Scanner(System.in);
+     System.out.println("Enter the class name");
+     String className=scan.next();
+     classRoom1.setClassName(className);
+     System.out.println("Enter the number of students for the first class");
+     int numberOfStudents=scan.nextInt();
+     String studentNames[]=new String[numberOfStudents];
+     for(int i=0;i<studentNames.length;i++){
+      System.out.println("Enter the student name");
+      studentNames[i]=scan.nextLine();
+     }
+     classRoom1.setStudentsName(studentNames);
+     // In the above statement we are associating the array of Students with the classRoom1 object.
+     System.out.println("Enter the class name for the second class");
+     className=scan.next();
+     classRoom2.setClassName(className); 
+     System.out.println("Enter the number of students for the second class");
+     numberOfStudent=scan.nextInt();
+     studentNames=new String[numberOfStudents];
+     for(int i=0;i<studentNames.length;i++){
+      System.out.println("Enter the student name");
+      studentNames[i]=scan.nextLine();
+     }   
+     classRoom2.setStudentsName(studentNames);
+
+
+
+    } 
+ }
+
+
+
+
+
+
+
+
+
 -----------------------------------------------------------------------------------------------
+Array of Object I need to store the details of multiple Books
+
+ public class Book {
+       private int id; 
+       private String title;
+       private float price;
+     // setter/getters
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
+ 
+    }
+
+   import java.util.Scanner;
+   public class BookMain{
+    public static void main(String args[]){
+      Scanner scan=new Scanner(System.in);
+      System.out.println("How many books to enter");
+      int size=scan.nextInt();
+      Book books[]=new Book[size];
+      /*for(int i=0;i<books.length;i++){
+        System.out.println(books[i]);
+       } */
+       for(int i=0;i<books.length;i++){
+            books[i]=new Book();  
+            System.out.println("Enter the book id");
+            int id=scan.nextInt();
+            books[i].setId(id); 
+            System.out.println("Enter the book title");
+            String title=scan.next();
+            books[i].setTitle(title);
+            System.out.println("Enter the book price");
+            float price=scan.nextFloat();
+            books[i].setPrice(price);
+      }  // end of for loop
+
+     for(int i=0;i<books.length;i++){
+        System.out.println(books[i].getId());
+        System.out.println(books[i].getTitle());
+        System.out.println(books[i].getPrice());      
+     }
+
+    }   // end of main
+  }    // end of class
+=======================================================================================================
+
+Design a class Item with itemId, itemName and price. Accept the number of items from user.
+   
+
+
 
