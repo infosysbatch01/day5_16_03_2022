@@ -1,0 +1,131 @@
+
+int num[]; // num is an array of int type and we have declared the array
+num=new int[5]; // Array will be of size 5, this is array initialisation
+// As the array is of int the elements are initialised with the 
+// value 0
+
+public class ArrayDemo1{
+  
+  public static void main(String args[]){
+    int num[]=new int[5];
+    for(int i=0;i<num.length;i++){
+     System.out.println(num[i]);
+    }  // end of for loop
+   }  // end of main
+  } // end of class
+  
+
+public class ArrayDemo2{
+  
+  public static void main(String args[]){
+    int num[];
+    num=new int[5];
+    for(int i=0;i<num.length;i++){
+     System.out.println(num[i]);
+    }  // end of for loop
+   }  // end of main
+  } // end of class
+  
+
+
+public class ArrayDemo3{
+  
+  public static void main(String args[]){
+    int num[]={1,2,3,3,10};
+    for(int i=0;i<num.length;i++){
+     System.out.println(num[i]);
+    }  // end of for loop
+   }  // end of main
+  } // end of class
+
+
+We have a Student class and we need to store marks for the Student in 
+3 subjects.
+
+class Student {}
+
+int marks[]=new int[3]; 
+--------------------------------------------------
+
+public class Student {
+private int roll;
+private String name;
+private int marks[];
+public int getRoll() {
+	return roll;
+}
+public void setRoll(int roll) {
+	this.roll = roll;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public int[] getMarks() {
+	return marks;
+}
+public void setMarks(int[] marks) {
+	this.marks = marks;
+}
+}
+
+import java.util.Scanner;
+
+public class StudentMain {
+// Ctrl+Shift+o ( shortcut to get import statement
+	public static void main(String[] args) {
+		
+		Student student=new Student();
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter the roll number");
+        int roll=scanner.nextInt();
+        student.setRoll(roll);
+        System.out.println("Enter the name");
+        String name=scanner.next();
+        student.setName(name);
+        System.out.println("Enter the marks");
+        // marks is local to the main method
+        // Can we have different name for marks or 
+        // it should be exactly same as instance
+        // variable marks of Student class?
+        // Ans Yes
+        int marks[]=new int[3];
+        for(int i=0;i<marks.length;i++) {
+        	System.out.println("Enter marks");
+        	marks[i]=scanner.nextInt();
+        } // end of for loop
+	    student.setMarks(marks);
+	   System.out.println("The details");
+	   roll=student.getRoll();
+	   //System.out.println(student.getRoll());
+	   System.out.println(roll);
+	   name=student.getName();
+	   System.out.println(name);
+	   marks=student.getMarks();
+	   //System.out.println(marks);
+	   for(int i=0;i<marks.length;i++)
+	   {
+		   System.out.println(marks[i]);
+	   }
+	   
+	}
+
+}
+-----------------------------------------------------------------------------------------------------
+An Employee is having id,name and address. We need to store 2 addresses.
+
+ public class Employee{
+  id
+  name
+  address
+  [Hint for address , we have to declare an array of type String
+ }
+
+ public class EmployeeMain{
+
+ }
+--------------------------------------------------------------------------------------------------
+
+
