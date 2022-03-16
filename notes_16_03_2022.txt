@@ -363,4 +363,35 @@ public class ArrayDemo8 {
 A Student can have roll, name and marks for 3 subjects and 2 attempts. Find the average and display
 the student roll,name and marks with the average being displayed.
 We can have entry for multiple students.  
+
+  public class Student {
+   private int roll;
+   private String name;
+   private int marks[][];
+
+  setter(roll,name and marks)/getter(roll and name) 
+// plan to find the average for the attempts
+public void calculateAverage()
+  // display the marks and average of the marks in each subject in this method
+}
+
+ public class StudentMain{
+   public static void main(String args[]){
+    int marks[][]=new int[3][2];
+    System.out.println("Enter the number of students");
+    int size=scanner.nextInt();
+    Student student[]=new Student[size];
+    /* Write a for loop for 
+      1) For creating objects
+      2) For storing id,name and marks */
+    /* Write a for loop for 
+       1) For displaying id and name
+       2) calculateAverage()    */
+    Scanner scanner=new Scanner(System.in);
+    /* 1) accept id,name and marks
+       2) call the setter methods
+       3) a) all the getter methods
+          b) call the calculateAverage method to show the marks and the average of the attempts
+   }
+ }
 ------------------------------------------------------------------------------------------------------- 
