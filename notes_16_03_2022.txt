@@ -394,4 +394,45 @@ public void calculateAverage()
           b) call the calculateAverage method to show the marks and the average of the attempts
    }
  }
-------------------------------------------------------------------------------------------------------- 
+-------------------------------------------------------------------------------------------------------
+Q Why we are passing a String array in main method?
+A The array is of String type and it is called command line argument. 
+
+Q What is command line argument?
+A A command line argument/arguments are sent from the command line when we execute the program.
+  javac Hello.java -------> Hello.class ----------------> java Hello Ravi Ashok // Ravi Ashok are
+command line arguments
+ public class CommandLine {
+    public static void main(String args[]){
+     System.out.println(args[0]);  // Ravi
+     System.out.println(args[1]);  // Ashok
+     System.out.println(args.length); // 2
+     
+     for(int i=0;i<args.length;i++)
+     {
+    	 System.out.println(args[i]);
+     }
+     for(String str : args)
+     {
+    	 System.out.println(str);
+     }
+     
+    }
+ }
+[Note: If we don't set any command line argument we get an exception.
+  Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0 at CommandLine.main(CommandLine.java:3)]
+
+Q How we can pass command line argument while working in Eclipse?
+A Right click on the code editor. Run As-----> Run Configurations(You get a dialog box) Select
+  arguments tab from the dialog box. Write arguments in the box , program arguments.
+  After providing the arguments, click on Run button and see the output.
+ public class CommandLine {
+  public static void main(String args[]){
+   for(String str : args)
+     {
+    	 System.out.println(str.toUpperCase());
+     }
+}
+}
+
+------------------------------------------------------------------------------------------
