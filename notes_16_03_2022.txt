@@ -426,7 +426,7 @@ Q How we can pass command line argument while working in Eclipse?
 A Right click on the code editor. Run As-----> Run Configurations(You get a dialog box) Select
   arguments tab from the dialog box. Write arguments in the box , program arguments.
   After providing the arguments, click on Run button and see the output.
- public class CommandLine {
+ public class CommandLine2 {
   public static void main(String args[]){
    for(String str : args)
      {
@@ -436,3 +436,28 @@ A Right click on the code editor. Run As-----> Run Configurations(You get a dial
 }
 
 ------------------------------------------------------------------------------------------
+
+
+
+1 public class Debug {
+2     public static void add() {
+3              System.out.println("Hello");
+4              System.out.println("Hi");
+5              System.out.println("Done");
+6        }
+7   public static void main(String args[]) {
+8        add();
+9    }
+10  }
+
+Suppose we have set the breakpoint on line add with add method.
+When we are in add method , if we press F5. 
+   It will move into the println method defination of line 3. 
+   But when we are in line3 and if we press F6, It will move to line4 and still we continue with 
+   F6 it move the next line where we have printed Done.
+   But being in line 4 or 3 or 5 if we press F7, control is taken back to line9.
+
+    
+
+
+
